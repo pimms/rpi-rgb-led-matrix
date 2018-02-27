@@ -149,6 +149,10 @@ graphics.o: graphics.cc utf8-internal.h
 clean:
 	rm -f $(OBJECTS) $(TARGET).a $(TARGET).so.1
 
+install: $(TARGET).so.1
+	cp $(TARGET).so.1 /usr/lib/
+	ln -s /usr/lib/$(TARGET).so.1 /usr/lib/$(TARGET).so
+
 compiler-flags: FORCE
 	@echo '$(CXX) $(CXXFLAGS)' | cmp -s - $@ || echo '$(CXX) $(CXXFLAGS)' > $@
 

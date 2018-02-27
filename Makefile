@@ -30,5 +30,8 @@ build-python: $(RGB_LIBRARY)
 install-python: build-python
 	$(MAKE) -C $(PYTHON_LIB_DIR) install
 
+install: $(RGB_LIBRARY)
+	$(MAKE) -C $(RGB_LIBDIR) install
+
 FORCE:
 .PHONY: FORCE
