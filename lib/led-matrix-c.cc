@@ -126,6 +126,15 @@ struct RGBLedMatrix *led_matrix_create(int rows, int chained, int parallel) {
   return led_matrix_create_from_options(&opts, NULL, NULL);
 }
 
+struct RGBLedMatrix *led_matrix_create_single(int rows, int cols, const char *gpio_map) {
+  struct RGBLedMatrixOptions opts;
+  memset(&opts, 0, sizeof(opts));
+  opts.rows = rows;
+  opts.cols = cols;
+  opts.hardware_mapping = gpio_map;
+  return led_matrix_create_from_options(&opts, NULL, NULL);
+}
+
 void led_matrix_print_flags(FILE *out) {
   rgb_matrix::RGBMatrix::Options defaults;
   rgb_matrix::RuntimeOptions rt_opt;

@@ -191,6 +191,11 @@ void led_matrix_print_flags(FILE *out);
  */
 struct RGBLedMatrix *led_matrix_create(int rows, int chained, int parallel);
 
+/**
+ * Sibling of led_matrix_create(), but only supports a single LED matrix.
+ */
+struct RGBLedMatrix *led_matrix_create_single(int rows, int cols, const char *gpio_map);
+
 
 /**
  * Stop matrix and free memory.
